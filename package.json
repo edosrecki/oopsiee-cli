@@ -12,10 +12,11 @@
     "url": "https://github.com/edosrecki/oopsiee-cli/issues"
   },
   "version": "0.0.1",
-  "main": "index.js",
+  "bin": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "clean": "rimraf dist",
+    "bundle": "npm run build && pkg . --out-dir bin",
+    "clean": "rimraf dist bin",
     "lint": "tslint -c tslint.json 'lib/**/*.ts'",
     "lint:fix": "npm run lint -- --fix",
     "pretest": "npm run lint",
@@ -28,6 +29,7 @@
     "@types/node": "^12.7.12",
     "husky": "^3.0.8",
     "jest": "^24.9.0",
+    "pkg": "^4.4.0",
     "prettier-package-json": "^2.1.0",
     "rimraf": "^3.0.0",
     "ts-jest": "^24.1.0",

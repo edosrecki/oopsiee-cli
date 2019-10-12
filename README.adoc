@@ -1,0 +1,25 @@
+:toc: macro
+:toc-title:
+:toclevels: 10
+
+= oOPSiee
+---
+
+toc::[]
+
+== Run
+```
+npx ts-node src/
+```
+
+== Build
+```shell
+npm run clean
+npm run bundle
+```
+
+== Test
+```shell
+npm test
+npm test:watch
+```
