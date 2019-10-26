@@ -4,6 +4,8 @@
 
 = oOPSiee
 
+image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-cli?color=blue&label=oopsiee-cli["oOPSiee CLI Version"]
+
 A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
 
 ---
@@ -20,9 +22,9 @@ oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
 
 === Run command
 ```shell
-oopsiee <COMMAND> <ARGS> <OPTS>
-oopsiee <COMMAND> <ARGS> <OPTS> --sync    # Run command synchronously
-oopsiee <COMMAND> <ARGS> <OPTS> --async   # Run command asynchronously
+oopsiee <COMMAND> [ARGS] [OPTS]
+oopsiee <COMMAND> [ARGS] [OPTS] --sync    # Run command synchronously
+oopsiee <COMMAND> [ARGS] [OPTS] --async   # Run command asynchronously
 ```
 
 === Help
@@ -34,12 +36,12 @@ oopsiee help <COMMAND>
 == Run
 === Development mode
 ```shell
-npm run exec:dev -- <ARGS>
+npm run exec:dev -- <COMMAND> [ARGS] [OPTS]
 ```
 
 === Distribution mode
 ```shell
-npm run exec:dist -- <ARGS>
+npm run exec:dist -- <COMMAND> [ARGS] [OPTS]
 ```
 
 == Build
