@@ -32,9 +32,17 @@ oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
 
 === Run command
 ```shell
+# Run synchronously/asynchronously (whichever is default for command)
 oopsiee <COMMAND> [ARGS] [OPTS]
-oopsiee <COMMAND> [ARGS] [OPTS] --sync    # Run command synchronously
-oopsiee <COMMAND> [ARGS] [OPTS] --async   # Run command asynchronously
+
+# Force command to run synchronously
+oopsiee <COMMAND> [ARGS] [OPTS] --sync
+
+# Force command to run asynchronously
+oopsiee <COMMAND> [ARGS] [OPTS] --async
+
+# Fetch results of asynchronous command execution
+oopsiee job <ID>
 ```
 
 === Help
