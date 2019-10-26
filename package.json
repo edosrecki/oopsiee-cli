@@ -11,7 +11,6 @@
   "bugs": {
     "url": "https://github.com/edosrecki/oopsiee-cli/issues"
   },
-  "version": "0.0.1",
   "bin": {
     "oopsiee": "dist/index.js"
   },
@@ -39,6 +38,8 @@
     "moment": "^2.24.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^3.0.5",
+    "@semantic-release/git": "^7.0.17",
     "@types/conf": "^3.0.0",
     "@types/flat": "0.0.28",
     "@types/jest": "^24.0.18",
@@ -78,6 +79,8 @@
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/git",
       [
         "@semantic-release/github",
         {
