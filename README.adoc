@@ -13,6 +13,12 @@ A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
 
 toc::[]
 
+== Installation
+Download a corresponding distribution from https://github.com/edosrecki/oopsiee-cli/releases[Releases] and add
+it to your `PATH` as `oopsiee.`
+
+Optionally build it from source by building and packaging it manually - see _Build_ and _Package_ sections.
+
 == Usage
 === Configure
 ```shell
@@ -50,7 +56,26 @@ npm run exec:dist -- <COMMAND> [ARGS] [OPTS]
 == Build
 ```shell
 npm run clean
+npm run build
+```
+
+== Package
+=== Pre-configured
+```shell
+# Packages for Node.JS 12 on MacOS, Linux, and Windows
 npm run bundle
+```
+
+=== Manual
+See https://www.npmjs.com/package/pkg#targets[pkg] for details.
+
+```shell
+npx pkg <NODE_RANGE>-<PLATFORM>-<ARCH>
+
+# Examples
+npx pkg node8-macos-x64
+npx pkg node10-linux-x86
+npx pkg node6-win-x64
 ```
 
 == Test
