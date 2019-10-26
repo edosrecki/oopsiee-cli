@@ -51,6 +51,7 @@
     "pkg": "^4.4.0",
     "prettier-package-json": "^2.1.0",
     "rimraf": "^3.0.0",
+    "semantic-release": "^15.13.28",
     "ts-jest": "^24.1.0",
     "ts-node": "^8.4.1",
     "tslint": "^5.20.0",
@@ -71,5 +72,8 @@
   },
   "jest": {
     "preset": "ts-jest"
+  },
+  "release": {
+    "branch": "release"
   }
 }
