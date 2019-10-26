@@ -1,6 +1,7 @@
 language: node_js
 script:
-  - npm test
-  - npm run bundle
-after_success:
-  - sh .travis/push.sh
+- npm test
+- npm run bundle
+env:
+  global:
+    secure: AR3DrxxbcWheVRMVtYqW3sYf2LGsI9yKKCI10jkKPFt83PnDzfaw3QUzLxPXAb+xh4Nup8qWVZsZpuydPkhn+I+UwYt5EkAT+zx6Ktx7sql2c9iVNfshPSuDotOQv/23G9TopYTZeIx7T71eACJWzZBmjcOf0yqiUpcgoT1Uebr34u/vjQblLhMBCV+FlfP3WS3E2agjD2bguoPT+I+WxIjORx8dtlRNYzsDU5bPwrwywNeUDDTRPCeEcqpcXiz1AmSHD2w9hJmokZ6cH053Fauks5+AtfLcaXJ8MTi2S/ovGN1Q6KpkZf2T9UhokoNyrP2lI6nXj2zgvbOz4yq8ABBf4N2G4kHqh5dGePx48i93ED3wo8oTq6OJ/F1IMrvoHQUX8ySpfaFo4YrqzPl4jqFqnpgIz8/kXYH9JDeOkpvbR/Ntw6wh/fOVzNsbWE/BkPmhaayCipvxSwdByyovt0pT/NfdFzBKSl48OUu00/R0qveL1LEFRwMM6AsH3+KxXNuR75Ckfa8FTq14wi1E6I0W0LB5jnfMTc5B+xA+Q7gyGTtEgOZ9N/af9h/8Htz6UsJ2/8tXuZNociPOty9yxTOpJct5AuALmeWqN197MQ7C5H0eZaynVKPmeGxkGDFrdBEHBUpw8FyaVljnwGfbk60Zso+q0E9M9vrvfXvz0QM=

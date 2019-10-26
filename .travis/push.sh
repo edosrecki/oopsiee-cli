@@ -6,6 +6,7 @@ setup_git() {
 }
 
 commit_bin() {
+  git checkout master
   git add --force bin/
   git commit -m 'chore: package into executables' -m '[ci skip]'
 }
