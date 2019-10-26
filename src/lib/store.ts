@@ -9,7 +9,7 @@ export const store = new Store({
   defaults: {
     config: {
       core: {
-        'url': '',
+        'url': 'https://oopsiee.herokuapp.com/',
         'auto-update': false,
         'update-interval': 24
       },

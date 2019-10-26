@@ -5,6 +5,7 @@
 = oOPSiee
 
 image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-cli?color=blue&label=oopsiee-cli["oOPSiee CLI Version"]
+image:https://travis-ci.org/edosrecki/oopsiee-cli.svg?branch=master["Build Status", link="https://travis-ci.org/edosrecki/oopsiee-cli"]
 
 A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
 
@@ -15,9 +16,11 @@ toc::[]
 == Usage
 === Configure
 ```shell
-oopsiee config set core.url <OOPSIEE_SERVER_URL>
 oopsiee config set user.name <USERNAME>
 oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
+
+# Configured by default
+# oopsiee config set core.url https://oopsiee.herokuapp.com/
 ```
 
 === Run command
