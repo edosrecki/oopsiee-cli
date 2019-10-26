@@ -74,6 +74,29 @@
     "preset": "ts-jest"
   },
   "release": {
-    "branch": "release"
+    "branch": "release",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/github",
+        {
+          "assets": [
+            {
+              "path": "bin/oopsiee-linux",
+              "label": "Linux distribution"
+            },
+            {
+              "path": "bin/oopsiee-macos",
+              "label": "MacOS distribution"
+            },
+            {
+              "path": "bin/oopsiee-win.exe",
+              "label": "Windows distribution"
+            }
+          ]
+        }
+      ]
+    ]
   }
 }

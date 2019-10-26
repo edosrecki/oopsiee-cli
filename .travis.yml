@@ -2,16 +2,18 @@ language: node_js
 env:
   global:
   - secure: AR3DrxxbcWheVRMVtYqW3sYf2LGsI9yKKCI10jkKPFt83PnDzfaw3QUzLxPXAb+xh4Nup8qWVZsZpuydPkhn+I+UwYt5EkAT+zx6Ktx7sql2c9iVNfshPSuDotOQv/23G9TopYTZeIx7T71eACJWzZBmjcOf0yqiUpcgoT1Uebr34u/vjQblLhMBCV+FlfP3WS3E2agjD2bguoPT+I+WxIjORx8dtlRNYzsDU5bPwrwywNeUDDTRPCeEcqpcXiz1AmSHD2w9hJmokZ6cH053Fauks5+AtfLcaXJ8MTi2S/ovGN1Q6KpkZf2T9UhokoNyrP2lI6nXj2zgvbOz4yq8ABBf4N2G4kHqh5dGePx48i93ED3wo8oTq6OJ/F1IMrvoHQUX8ySpfaFo4YrqzPl4jqFqnpgIz8/kXYH9JDeOkpvbR/Ntw6wh/fOVzNsbWE/BkPmhaayCipvxSwdByyovt0pT/NfdFzBKSl48OUu00/R0qveL1LEFRwMM6AsH3+KxXNuR75Ckfa8FTq14wi1E6I0W0LB5jnfMTc5B+xA+Q7gyGTtEgOZ9N/af9h/8Htz6UsJ2/8tXuZNociPOty9yxTOpJct5AuALmeWqN197MQ7C5H0eZaynVKPmeGxkGDFrdBEHBUpw8FyaVljnwGfbk60Zso+q0E9M9vrvfXvz0QM=
-  - secure: p3vjLclhQ2uZNziFa1DtCzSdFDz5ScWtU7eg7M6YdWEX6XOsnBOScHvYNdH8NwSCsiGCZnvz4kgOXNcdKHQ+zifGnEaS+obRz7pj+xFfJZq9vbXPGYe96B/KzzB53ZlWZhsQ9ZT9fiekvdHodRq1rP1bESNdM5nH7AL2rzdOhzoRcYF78QEX6T0DWIBjIC7fYshv2J6IFDIN1FR4gXkQa3EdDHhnJJiDSCpv8pKmM8s/mi4B5zhRsuPvbIeNoOtsnPeJeb56aNmJuEH1Smk+quXeUkYIH49w2wiLX796xla6N/OQK623A3l9ZsHcMmBDTYveszUXtg6IaVZNGeNkXPrZwQLVeqFACWr0GshgIJUBqlg3GCXMyA+I9SqFoYEfAzfWC/yPrYmGPJH7hEw1UD9ZylS4QJJ5QFeKy3qQVuNwvAmpVrS0Zz9stBNQnGjI15xUUfJCnOf6NqZAYlf7ks92nsvk7eFdKmRnwOq/ceP2//JZDUT1ry60pAmvmbSo/ZuDCM3Qi1SgIXZKZsY6g0gh0dYB9VvkZyZaZMX4gH+VNRAFap8KrsmNsQmJqwdHimhlJCgevcQ2qc9u5/DQ8t7jgRZl30Fwz7hNfd+izX3r4KRafPJCTUlxlKdUZyuYZMGm7+LTWiojTOHQE/tZazjm6SxUgeExptCins0fnOY=
 jobs:
   include:
   - stage: test
     script:
     - npm test
   - stage: release
+    script:
+      - npm run bundle
     deploy:
       provider: script
       skip_cleanup: true
       script: npx semantic-release
       on:
-        branch: release
+        all_branches: true
+        condition: $TRAVIS_BRANCH =~ ^(release|v)
