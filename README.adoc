@@ -3,13 +3,43 @@
 :toclevels: 10
 
 = oOPSiee
+
+A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
+
 ---
 
 toc::[]
 
-== Run
+== Usage
+=== Configure
+```shell
+oopsiee config set core.url <OOPSIEE_SERVER_URL>
+oopsiee config set user.name <USERNAME>
+oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
 ```
-npx ts-node src/
+
+=== Run command
+```shell
+oopsiee <COMMAND> <ARGS> <OPTS>
+oopsiee <COMMAND> <ARGS> <OPTS> --sync    # Run command synchronously
+oopsiee <COMMAND> <ARGS> <OPTS> --async   # Run command asynchronously
+```
+
+=== Help
+```shell
+oopsiee help
+oopsiee help <COMMAND>
+```
+
+== Run
+=== Development mode
+```shell
+npm run exec:dev -- <ARGS>
+```
+
+=== Distribution mode
+```shell
+npm run exec:dist -- <ARGS>
 ```
 
 == Build
@@ -21,5 +51,5 @@ npm run bundle
 == Test
 ```shell
 npm test
-npm test:watch
+npm run test:watch
 ```
