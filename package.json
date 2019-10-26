@@ -11,6 +11,7 @@
   "bugs": {
     "url": "https://github.com/edosrecki/oopsiee-cli/issues"
   },
+  "version": "0.0.0-dev",
   "bin": {
     "oopsiee": "dist/index.js"
   },
