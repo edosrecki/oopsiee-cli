@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.2...v1.0.3) (2019-10-26)
+
+
+### Bug Fixes
+
+* automatically update package.json version ([00c60b4](https://github.com/edosrecki/oopsiee-cli/commit/00c60b4f9a9adf4b7b4d73ec17adb902854267a0))
+
 ## [1.0.2](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.1...v1.0.2) (2019-10-26)
 
 
