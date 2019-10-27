@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.3...v1.0.4) (2019-10-27)
+
+
+### Bug Fixes
+
+* **commands:** rename 'action' property to 'procedure' ([94fb74a](https://github.com/edosrecki/oopsiee-cli/commit/94fb74a554890bf8f894690a7294f1b3c11cfa6f))
+
 ## [1.0.3](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.2...v1.0.3) (2019-10-26)
 
 
