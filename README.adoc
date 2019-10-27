@@ -24,6 +24,7 @@ Optionally build it from source by building and packaging it manually - see _Bui
 ```shell
 oopsiee config set user.name <USERNAME>
 oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
+# Add corresponding public key to oopsiee-server
 
 # Configured by default
 # oopsiee config set core.url https://oopsiee.herokuapp.com/
@@ -31,9 +32,17 @@ oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
 
 === Run command
 ```shell
+# Run synchronously/asynchronously (whichever is default for command)
 oopsiee <COMMAND> [ARGS] [OPTS]
-oopsiee <COMMAND> [ARGS] [OPTS] --sync    # Run command synchronously
-oopsiee <COMMAND> [ARGS] [OPTS] --async   # Run command asynchronously
+
+# Force command to run synchronously
+oopsiee <COMMAND> [ARGS] [OPTS] --sync
+
+# Force command to run asynchronously
+oopsiee <COMMAND> [ARGS] [OPTS] --async
+
+# Fetch results of asynchronous command execution
+oopsiee job <ID>
 ```
 
 === Help
@@ -83,3 +92,7 @@ npx pkg node6-win-x64
 npm test
 npm run test:watch
 ```
+
+== Deploy
+To deploy a new version of `oopsiee-cli`, merge `master` branch into `release` branch.
+New version will automatically get released by CI system.
