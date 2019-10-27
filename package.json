@@ -44,7 +44,7 @@
     "@semantic-release/git": "^7.0.17",
     "@types/conf": "^3.0.0",
     "@types/flat": "0.0.28",
-    "@types/jest": "^24.0.18",
+    "@types/jest": "^24.0.20",
     "@types/js-yaml": "^3.12.1",
     "@types/jsonwebtoken": "^8.3.4",
     "@types/lodash": "^4.14.144",
