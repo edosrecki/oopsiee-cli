@@ -6,6 +6,7 @@
 
 image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-cli/release?color=blue&label=oopsiee-cli["oOPSiee CLI Version"]
 image:https://travis-ci.org/edosrecki/oopsiee-cli.svg?branch=master["Build Status", link="https://travis-ci.org/edosrecki/oopsiee-cli"]
+image:https://img.shields.io/david/edosrecki/oopsiee-cli["Dependencies Status"]
 
 A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
 
