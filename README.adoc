@@ -8,7 +8,18 @@ image:https://img.shields.io/github/package-json/v/edosrecki/oopsiee-cli/release
 image:https://travis-ci.org/edosrecki/oopsiee-cli.svg?branch=master["Build Status", link="https://travis-ci.org/edosrecki/oopsiee-cli"]
 image:https://img.shields.io/david/edosrecki/oopsiee-cli["Dependencies Status"]
 
-A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
+A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server]. Simplifies **daily operations** and
+**on-call** duty by letting you run repeated and cumbersome tasks with one-liners.
+
+* Supports **synchronous** commands
+* Supports **asynchronous** jobs
+* Easily **extensible**
+* **Simple** installation and configuration
+* Comes with **help** entries
+* Runs on all **platforms**
+* Uses **private/public key** authentication
+* Written in **TypeScript**
+* Semi-automatic **dependency updates** with Dependabot
 
 ---
 
@@ -25,7 +36,8 @@ Optionally build it from source by building and packaging it manually - see _Bui
 ```shell
 oopsiee config set user.name <USERNAME>
 oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
-# Add corresponding public key to oopsiee-server
+# Add corresponding public key to oopsiee-server:
+# https://github.com/edosrecki/oopsiee-server#adding-your-public-key
 
 # Configured by default
 # oopsiee config set core.url https://oopsiee.herokuapp.com/
