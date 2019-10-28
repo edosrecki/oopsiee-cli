@@ -41,6 +41,9 @@ oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
 
 # Configured by default
 # oopsiee config set core.url https://oopsiee.herokuapp.com/
+
+# Update commands definitions
+oopsiee update
 ```
 
 === Run command
