@@ -11,16 +11,13 @@ export const store = new Store({
     config: {
       core: {
         'url': 'https://oopsiee.herokuapp.com/',
-        'auto-update': false,
+        'auto-update': true,
         'update-interval': 24
       },
       user: {
         'name': '',
         'key-file': ''
       }
-    },
-    meta: {
-      'last-update': ''
     },
     commands: {}
   }
