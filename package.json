@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.5",
+    "@semantic-release/exec": "^3.3.8",
     "@semantic-release/git": "^7.0.17",
     "@types/conf": "^3.0.0",
     "@types/flat": "0.0.28",
@@ -53,6 +54,7 @@
     "jest": "^24.9.0",
     "pkg": "^4.4.0",
     "prettier-package-json": "^2.1.0",
+    "replace-in-file": "^4.2.0",
     "rimraf": "^3.0.0",
     "semantic-release": "^15.13.28",
     "ts-jest": "^24.1.0",
@@ -84,6 +86,12 @@
       "@semantic-release/changelog",
       "@semantic-release/npm",
       "@semantic-release/git",
+      [
+        "@semantic-release/exec",
+        {
+          "prepareCmd": "npx replace-in-file '0.0.0-dev' '${nextRelease.version}' ./src/version.ts && npm run bundle"
+        }
+      ],
       [
         "@semantic-release/github",
         {
