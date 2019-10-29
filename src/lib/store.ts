@@ -2,6 +2,7 @@ import Store from 'conf'
 import yaml from 'js-yaml'
 
 export const store = new Store({
+  projectName: 'oopsiee',
   projectSuffix: '',
   fileExtension: 'yaml',
   serialize: yaml.safeDump,
