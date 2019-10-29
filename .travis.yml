@@ -5,8 +5,6 @@ jobs:
     script:
     - npm test
   - stage: release
-    script:
-    - npm run bundle
     deploy:
       provider: script
       skip_cleanup: true

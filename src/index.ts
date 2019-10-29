@@ -1,4 +1,5 @@
 import program from 'caporal'
+import { version } from './version'
 import { store } from './lib/store'
 import { addConfigCommands } from './commands/config'
 import { addUpdateCommands } from './commands/update'
@@ -8,7 +9,7 @@ async function main () {
   program
     .name('oOPSiee')
     .bin('oopsiee')
-    .version('0.0.1')
+    .version(version)
 
   addConfigCommands(program, store)
   addUpdateCommands(program, store)
