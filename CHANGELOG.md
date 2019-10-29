@@ -1,3 +1,10 @@
+## [1.0.5](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.4...v1.0.5) (2019-10-29)
+
+
+### Bug Fixes
+
+* **version:** update CLI version with each release ([4a67992](https://github.com/edosrecki/oopsiee-cli/commit/4a67992bb6d7f9d7d3b37bcb108d6d8b3f8f98d6))
+
 ## [1.0.4](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.3...v1.0.4) (2019-10-27)
 
 
