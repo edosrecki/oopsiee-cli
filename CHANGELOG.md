@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.6...v1.1.0) (2019-10-29)
+
+
+### Features
+
+* implement auto-update ([fa3225d](https://github.com/edosrecki/oopsiee-cli/commit/fa3225d7fa9438bf3afd777296d01217c430bcf8))
+
 ## [1.0.6](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.5...v1.0.6) (2019-10-29)
 
 
