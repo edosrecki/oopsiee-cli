@@ -1,3 +1,10 @@
+## [1.0.6](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.5...v1.0.6) (2019-10-29)
+
+
+### Bug Fixes
+
+* specify projectName for 'conf' store ([dc9cdab](https://github.com/edosrecki/oopsiee-cli/commit/dc9cdab42ae7326dfd7bf461a77fec5ad629bc0b))
+
 ## [1.0.5](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.4...v1.0.5) (2019-10-29)
 
 
