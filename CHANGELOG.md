@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.1.0...v1.2.0) (2019-10-30)
+
+
+### Features
+
+* **homebrew:** release homebrew formula with each release ([1bdd913](https://github.com/edosrecki/oopsiee-cli/commit/1bdd913f69e035b8d81b3a6ae74ac7ce7c105dbb))
+
 # [1.1.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.0.6...v1.1.0) (2019-10-29)
 
 
