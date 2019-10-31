@@ -1,4 +1,5 @@
 import Store from 'conf'
+import { isNil } from 'lodash'
 import { update } from '../lib/update'
 
 export const addUpdateCommands = (program: Caporal, store: Store) => {
@@ -8,7 +9,8 @@ export const addUpdateCommands = (program: Caporal, store: Store) => {
       try {
         await update(store)
       } catch (error) {
-        console.error(error.response.data)
+        const data = isNil(error.response) ? { message: error.message } : error.response.data
+        console.error(data)
       }
     })
 }
