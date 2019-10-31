@@ -57,6 +57,12 @@ oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
 oopsiee update
 ```
 
+=== Help
+```shell
+oopsiee help
+oopsiee help <COMMAND>
+```
+
 === Run command
 ```shell
 # Run synchronously/asynchronously (whichever is default for command)
@@ -70,12 +76,6 @@ oopsiee <COMMAND> [ARGS] [OPTS] --async
 
 # Fetch results of asynchronous command execution
 oopsiee job <ID>
-```
-
-=== Help
-```shell
-oopsiee help
-oopsiee help <COMMAND>
 ```
 
 == Run
