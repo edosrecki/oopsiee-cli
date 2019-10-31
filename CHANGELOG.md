@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/edosrecki/oopsiee-cli/compare/v1.2.0...v1.2.1) (2019-10-31)
+
+
+### Bug Fixes
+
+* fix issues with error handling ([b52dfea](https://github.com/edosrecki/oopsiee-cli/commit/b52dfeaf799ee96b4e0b23ef4c4f3c6ac00da0b1))
+
 # [1.2.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.1.0...v1.2.0) (2019-10-30)
 
 
