@@ -26,10 +26,21 @@ A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
 toc::[]
 
 == Installation
-Download a corresponding distribution from https://github.com/edosrecki/oopsiee-cli/releases[Releases] and add
-it to your `PATH` as `oopsiee.`
+=== Homebrew
+```shell
+brew install edosrecki/tools/oopsiee
 
-Optionally build it from source by building and packaging it manually - see _Build_ and _Package_ sections.
+# To update:
+brew upgrade oopsiee
+```
+
+=== Releases
+Download a corresponding distribution from https://github.com/edosrecki/oopsiee-cli/releases[Releases] and add
+the executable to your `PATH`.
+
+=== Build from source
+Optionally, you can also build it from source by building and packaging it manually - see _Build_ and
+_Package_ sections.
 
 == Usage
 === Configure
@@ -46,6 +57,12 @@ oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
 oopsiee update
 ```
 
+=== Help
+```shell
+oopsiee help
+oopsiee help <COMMAND>
+```
+
 === Run command
 ```shell
 # Run synchronously/asynchronously (whichever is default for command)
@@ -59,12 +76,6 @@ oopsiee <COMMAND> [ARGS] [OPTS] --async
 
 # Fetch results of asynchronous command execution
 oopsiee job <ID>
-```
-
-=== Help
-```shell
-oopsiee help
-oopsiee help <COMMAND>
 ```
 
 == Run

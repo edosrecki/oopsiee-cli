@@ -1,6 +1,6 @@
 import Store from 'conf'
 import axios from 'axios'
-import { isEmpty } from 'lodash'
+import { isEmpty, isNil } from 'lodash'
 import { addCommandArguments, addCommandOptions, buildActionParams, buildActionPath, fetchJobResults } from '../lib/rpc'
 import { buildAuthorizationHeader } from '../util/authorization'
 
@@ -13,7 +13,8 @@ export const addRpcCommands = (program: Caporal, store: Store) => {
         const { data } = await fetchJobResults(store, id)
         console.log(data)
       } catch (error) {
-        console.error(error.response.data)
+        const data = isNil(error.response) ? { message: error.message } : error.response.data
+        console.error(data)
       }
     })
 
@@ -60,7 +61,8 @@ const addRpcCommand = (store: Store, program: Caporal, namespace: string, defini
 
       console.log(data)
     } catch (error) {
-      console.error(error.response.data)
+      const data = isNil(error.response) ? { message: error.message } : error.response.data
+      console.error(data)
     }
   })
 }

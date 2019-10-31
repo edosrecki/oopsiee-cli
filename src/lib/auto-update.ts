@@ -1,7 +1,7 @@
 import Store from 'conf'
 import moment from 'moment'
 import ora from 'ora'
-import { isEmpty } from 'lodash'
+import { isEmpty, isNil } from 'lodash'
 import { update } from './update'
 
 const shouldAutoUpdate = (store: Store): boolean => {
@@ -25,7 +25,8 @@ export const autoUpdate = async (store: Store) => {
       await update(store)
     }
   } catch (error) {
-    console.error(error.response.data)
+    const data = isNil(error.response) ? { message: error.message } : error.response.data
+    console.error(data)
   } finally {
     spinner.stop()
   }
