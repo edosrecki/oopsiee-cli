@@ -18,6 +18,7 @@ A CLI tool for link:https://github.com/edosrecki/oopsiee-server[oopsiee-server].
 * Comes with **help** entries
 * Runs on all **platforms**
 * Uses **private/public key** authentication
+** Supports **encrypted** private keys
 * Written in **TypeScript**
 * Semi-automatic **dependency updates** with Dependabot
 
