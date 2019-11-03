@@ -4,6 +4,7 @@ import chalk from 'chalk'
 import inquirer from 'inquirer'
 import Store from 'conf'
 import { sign } from 'jsonwebtoken'
+import { SSHAgentClient } from '../lib/ssh-agent'
 
 const promptPassword = async (prefixMessage?: string): Promise<string> => {
   let prefix = chalk.green('?')
@@ -51,8 +52,24 @@ const loadKey = async (store: Store, passphrase?: string): Promise<string> => {
 
 export const buildAuthorizationHeader = async (store: Store): Promise<string> => {
   const user = store.get('config.user.name')
-  const privateKey = await loadKey(store)
+  const sshAgentSocket = store.get('config.user.ssh-agent-socket')
 
+  if (sshAgentSocket) {
+    try {
+      const sshAgent = new SSHAgentClient(sshAgentSocket)
+      const keyFilePath = store.get('config.user.key-file')
+      const key = await sshAgent.findKey(keyFilePath)
+
+      if (key) {
+        const token = await sshAgent.generateJWT({ user }, key.raw)
+        return `Bearer ${token}`
+      }
+    } catch (error) {
+      console.log(`${chalk.yellow('Warning:')} ssh-agent error - ${error.message}`)
+    }
+  }
+
+  const privateKey = await loadKey(store)
   const token = sign({ user }, privateKey, { algorithm: 'RS256' })
   return `Bearer ${token}`
 }

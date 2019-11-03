@@ -16,7 +16,8 @@ export const store = new Store({
       },
       user: {
         'name': '',
-        'key-file': ''
+        'key-file': '',
+        'ssh-agent-socket': ''
       }
     },
     commands: {}
