@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.3.0...v1.4.0) (2019-11-03)
+
+
+### Features
+
+* **auth:** add ssh-agent integration ([64cba9c](https://github.com/edosrecki/oopsiee-cli/commit/64cba9c84d22d53909415b59c4a98a6579e8321c))
+
 # [1.3.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.2.1...v1.3.0) (2019-11-03)
 
 
