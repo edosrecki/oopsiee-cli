@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.2.1...v1.3.0) (2019-11-03)
+
+
+### Features
+
+* **auth:** support encrypted private keys ([48e7ba2](https://github.com/edosrecki/oopsiee-cli/commit/48e7ba22e5414d74eff67eabd983265ea5a1b7f2))
+
 ## [1.2.1](https://github.com/edosrecki/oopsiee-cli/compare/v1.2.0...v1.2.1) (2019-10-31)
 
 
