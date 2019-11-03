@@ -51,7 +51,7 @@ const addRpcCommand = (store: Store, program: Caporal, namespace: string, defini
         baseURL: url,
         url: path,
         headers: {
-          Authorization: buildAuthorizationHeader(store)
+          Authorization: await buildAuthorizationHeader(store)
         },
         data: {
           procedure: definition.procedure,

@@ -5,7 +5,7 @@ import { flow, isArray, isEmpty, reduce } from 'lodash'
 import { isNil, join, reject, zipWith } from 'lodash/fp'
 import { buildAuthorizationHeader } from '../util/authorization'
 
-export const fetchJobResults = (store: Store, id: string) => {
+export const fetchJobResults = async (store: Store, id: string) => {
   const url = store.get('config.core.url')
 
   if (isEmpty(url)) {
@@ -17,7 +17,7 @@ export const fetchJobResults = (store: Store, id: string) => {
     baseURL: url,
     url: `rpc/async/${id}`,
     headers: {
-      Authorization: buildAuthorizationHeader(store)
+      Authorization: await buildAuthorizationHeader(store)
     }
   })
 }
