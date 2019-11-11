@@ -45,7 +45,7 @@
   "devDependencies": {
     "@semantic-release/changelog": "^3.0.5",
     "@semantic-release/exec": "^3.3.8",
-    "@semantic-release/git": "^7.0.17",
+    "@semantic-release/git": "^7.0.18",
     "@types/conf": "^3.0.0",
     "@types/flat": "0.0.28",
     "@types/inquirer": "^6.5.0",
