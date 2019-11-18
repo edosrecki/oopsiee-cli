@@ -54,7 +54,7 @@
     "@types/jsonwebtoken": "^8.3.5",
     "@types/lodash": "^4.14.146",
     "@types/node": "^12.12.7",
-    "husky": "^3.0.9",
+    "husky": "^3.1.0",
     "jest": "^24.9.0",
     "pkg": "^4.4.0",
     "prettier-package-json": "^2.1.0",
