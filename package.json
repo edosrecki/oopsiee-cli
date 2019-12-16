@@ -56,7 +56,7 @@
     "@types/node": "^12.12.7",
     "husky": "^3.1.0",
     "jest": "^24.9.0",
-    "pkg": "^4.4.0",
+    "pkg": "^4.4.2",
     "prettier-package-json": "^2.1.0",
     "replace-in-file": "^4.2.0",
     "rimraf": "^3.0.0",
