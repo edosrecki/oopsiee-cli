@@ -1,3 +1,15 @@
+# [1.5.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.4.1...v1.5.0) (2020-05-03)
+
+
+### Bug Fixes
+
+* **brew:** fix brew formula deployment ([63881e7](https://github.com/edosrecki/oopsiee-cli/commit/63881e71c22e0054b5971cf00c3a212a0580047f))
+
+
+### Features
+
+* **auth:** add 'oopsiee login' command ([391f91b](https://github.com/edosrecki/oopsiee-cli/commit/391f91bc83b08fa870b8c1ed1684f0dbb2dcefbf)), closes [#17](https://github.com/edosrecki/oopsiee-cli/issues/17)
+
 ## [1.4.1](https://github.com/edosrecki/oopsiee-cli/compare/v1.4.0...v1.4.1) (2020-05-03)
 
 # [1.4.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.3.0...v1.4.0) (2019-11-03)
