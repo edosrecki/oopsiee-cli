@@ -7,6 +7,8 @@ on:
 
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  OOPSIEE_GITHUB_TOKEN: ${{ secrets.OOPSIEE_GITHUB_TOKEN }}
+  GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
 
 jobs:
   test-build-deploy:
