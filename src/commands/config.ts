@@ -1,11 +1,11 @@
 import Store from 'conf'
-import { map, join, identity } from 'lodash'
 import flatten from 'flat'
+import { identity, join, map } from 'lodash'
 import { Parser, toBoolean, toInt } from '../util/parsers'
 
 const parsers: { [variable: string]: Parser } = {
   'core.auto-update': toBoolean,
-  'core.update-interval': toInt
+  'core.update-interval': toInt,
 }
 
 export const addConfigCommands = (program: Caporal, store: Store) => {
@@ -40,7 +40,7 @@ export const addConfigCommands = (program: Caporal, store: Store) => {
     .action(() => {
       const variables = map(
         flatten(store.get('config')),
-        (value, variable) => `${variable}=${value || ''}`
+        (value, variable) => `${variable}=${value || ''}`,
       )
 
       console.log(join(variables, '\n'))

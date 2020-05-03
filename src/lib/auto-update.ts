@@ -1,7 +1,7 @@
 import Store from 'conf'
+import { isEmpty, isNil } from 'lodash'
 import moment from 'moment'
 import ora from 'ora'
-import { isEmpty, isNil } from 'lodash'
 import { update } from './update'
 
 const shouldAutoUpdate = (store: Store): boolean => {

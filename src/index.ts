@@ -1,12 +1,12 @@
 import program from 'caporal'
-import { version } from './version'
-import { store } from './lib/store'
 import { addConfigCommands } from './commands/config'
-import { addUpdateCommands } from './commands/update'
 import { addRpcCommands } from './commands/rpc'
+import { addUpdateCommands } from './commands/update'
 import { autoUpdate } from './lib/auto-update'
+import { store } from './lib/store'
+import { version } from './version'
 
-async function main () {
+async function main() {
   await autoUpdate(store)
 
   program
@@ -21,6 +21,6 @@ async function main () {
   program.parse(process.argv)
 }
 
-main().catch(error => {
+main().catch((error) => {
   console.error(error)
 })

@@ -1,5 +1,5 @@
-import net from 'net'
 import { find } from 'lodash'
+import net from 'net'
 import { base64Url } from '../util/base64-url'
 
 const PROTOCOL = {
@@ -11,7 +11,7 @@ const PROTOCOL = {
 
 const FLAG = {
   SSH_AGENT_RSA_SHA2_256: 2,
-  SSH_AGENT_RSA_SHA2_512: 4
+  SSH_AGENT_RSA_SHA2_512: 4,
 }
 
 /**
@@ -20,16 +20,16 @@ const FLAG = {
 export class SSHAgentClient {
   private readonly socketPath: string
 
-  constructor (socketPath: string) {
+  constructor(socketPath: string) {
     this.socketPath = socketPath
   }
 
-  async findKey (comment: string): Promise<any|undefined> {
+  public async findKey(comment: string): Promise<any|undefined> {
     const keys = await this.fetchKeys()
     return find(keys, { comment })
   }
 
-  async generateJWT (payload: any, key: Buffer): Promise<string> {
+  public async generateJWT(payload: any, key: Buffer): Promise<string> {
     const header = { alg: 'RS256', typ: 'JWT' }
     const data = `${base64Url(header)}.${base64Url(payload)}`
     const signature = await this.signRequest(Buffer.from(data), key)
@@ -37,7 +37,7 @@ export class SSHAgentClient {
     return `${data}.${base64Url(signature.raw)}`
   }
 
-  fetchKeys () {
+  private fetchKeys() {
     const buildRequest = () => {
       const request = Buffer.alloc(4 + 1)
       this.writeRequestHeader(request, PROTOCOL.SSH_AGENTC_REQUEST_RSA_IDENTITIES)
@@ -48,7 +48,7 @@ export class SSHAgentClient {
     const parseResponse = (data: Buffer) => {
       const numKeys = data.readUInt32BE(0)
 
-      let keys = []
+      const keys = []
       let offset = 4
       for (let i = 0; i < numKeys; i++) {
         const key = this.readString(data, offset)
@@ -60,7 +60,7 @@ export class SSHAgentClient {
         keys.push({
           key: key.toString('base64'),
           comment: comment.toString('utf8'),
-          raw: key
+          raw: key,
         })
       }
 
@@ -70,7 +70,7 @@ export class SSHAgentClient {
     return this.request(buildRequest, PROTOCOL.SSH_AGENT_IDENTITIES_ANSWER, parseResponse)
   }
 
-  signRequest (data: Buffer, key: Buffer): Promise<any> {
+  private signRequest(data: Buffer, key: Buffer): Promise<any> {
     const buildRequest = () => {
       const request = Buffer.alloc(4 + 1 + 4 + key.length + 4 + data.length + 4)
       let offset = this.writeRequestHeader(request, PROTOCOL.SSH2_AGENTC_SIGN_REQUEST)
@@ -81,22 +81,22 @@ export class SSHAgentClient {
       return request
     }
 
-    const parseResponse = (data: Buffer) => {
-      const blob = this.readString(data, 0)
+    const parseResponse = (response: Buffer) => {
+      const blob = this.readString(response, 0)
       const type = this.readString(blob, 0)
       const signature = this.readString(blob, 4 + type.length)
 
       return {
         type: type.toString('utf8'),
         signature: signature.toString('base64'),
-        raw: signature
+        raw: signature,
       }
     }
 
     return this.request(buildRequest, PROTOCOL.SSH2_AGENT_SIGN_RESPONSE, parseResponse)
   }
 
-  private readString (data: Buffer, offset: number) {
+  private readString(data: Buffer, offset: number) {
     const length = data.readUInt32BE(offset)
     offset += 4
 
@@ -105,7 +105,7 @@ export class SSHAgentClient {
     return str
   }
 
-  private writeString (dest: Buffer, data: Buffer, offset: number): number {
+  private writeString(dest: Buffer, data: Buffer, offset: number): number {
     dest.writeUInt32BE(data.length, offset)
     offset += 4
     data.copy(dest, offset)
@@ -113,14 +113,14 @@ export class SSHAgentClient {
     return offset + data.length
   }
 
-  private writeRequestHeader (request: Buffer, tag: number): number {
+  private writeRequestHeader(request: Buffer, tag: number): number {
     request.writeUInt32BE(request.length - 4, 0)
     request.writeUInt8(tag, 4)
 
     return 5
   }
 
-  private request (buildRequest: Function, responseTag: number, parseResponse: Function): Promise<any> {
+  private request(buildRequest: () => Buffer, responseTag: number, parseResponse: (response: Buffer) => any): Promise<any> {
     return new Promise((resolve, reject) => {
       const socket = net.createConnection(this.socketPath)
 

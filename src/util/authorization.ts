@@ -1,8 +1,8 @@
-import fs from 'fs'
-import crypto from 'crypto'
 import chalk from 'chalk'
-import inquirer from 'inquirer'
 import Store from 'conf'
+import crypto from 'crypto'
+import fs from 'fs'
+import inquirer from 'inquirer'
 import { sign } from 'jsonwebtoken'
 import { SSHAgentClient } from '../lib/ssh-agent'
 
@@ -16,7 +16,7 @@ const promptPassword = async (prefixMessage?: string): Promise<string> => {
     type: 'password',
     name: 'password',
     message: 'Key passphrase:',
-    prefix
+    prefix,
   }])
 
   return password
@@ -29,11 +29,11 @@ const loadKey = async (store: Store, passphrase?: string): Promise<string> => {
     return crypto
       .createPrivateKey({
         key: fs.readFileSync(filePath),
-        passphrase
+        passphrase,
       })
       .export({
         format: 'pem',
-        type: 'pkcs1'
+        type: 'pkcs1',
       }) as string
 
   } catch (error) {
@@ -61,8 +61,8 @@ export const buildAuthorizationHeader = async (store: Store): Promise<string> =>
       const key = await sshAgent.findKey(keyFilePath)
 
       if (key) {
-        const token = await sshAgent.generateJWT({ user }, key.raw)
-        return `Bearer ${token}`
+        const sshAgentToken = await sshAgent.generateJWT({ user }, key.raw)
+        return `Bearer ${sshAgentToken}`
       }
     } catch (error) {
       console.log(`${chalk.yellow('Warning:')} ssh-agent error - ${error.message}`)

@@ -1,5 +1,5 @@
-import Store from 'conf'
 import axios from 'axios'
+import Store from 'conf'
 import { isEmpty, isNil } from 'lodash'
 import { addCommandArguments, addCommandOptions, buildActionParams, buildActionPath, fetchJobResults } from '../lib/rpc'
 import { buildAuthorizationHeader } from '../util/authorization'
@@ -23,7 +23,7 @@ export const addRpcCommands = (program: Caporal, store: Store) => {
     return
   }
 
-  for (const namespace in definitions) {
+  for (const namespace of Object.keys(definitions)) {
     for (const definition of definitions[namespace]) {
       addRpcCommand(store, program, namespace, definition)
     }
@@ -51,12 +51,12 @@ const addRpcCommand = (store: Store, program: Caporal, namespace: string, defini
         baseURL: url,
         url: path,
         headers: {
-          Authorization: await buildAuthorizationHeader(store)
+          Authorization: await buildAuthorizationHeader(store),
         },
         data: {
           procedure: definition.procedure,
-          params
-        }
+          params,
+        },
       })
 
       console.log(data)
