@@ -1,5 +1,7 @@
 import Store from 'conf'
 import inquirer from 'inquirer'
+import * as os from 'os'
+import * as path from 'path'
 
 export const addLoginCommands = (program: Caporal, store: Store) => {
   program
@@ -11,7 +13,7 @@ export const addLoginCommands = (program: Caporal, store: Store) => {
       }, {
         name: 'keyFile',
         message: 'Private key file path:',
-        default: '~/.ssh/id_rsa'
+        default: path.join(os.homedir(), '.ssh/id_rsa')
       }])
 
       store.set('config.user.name', name)
