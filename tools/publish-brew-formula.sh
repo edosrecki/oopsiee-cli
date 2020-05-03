@@ -4,11 +4,11 @@ version="$1"
 url="https://github.com/edosrecki/oopsiee-cli/releases/download/v$version/oopsiee-macos-$version.tar.gz"
 checksum=$(shasum -a 256 bin/oopsiee-macos.tar.gz | awk '{ print $1 }')
 
-git clone "https://${GH_TOKEN}@github.com/edosrecki/homebrew-tools.git"
+git clone "https://${OOPSIEE_GITHUB_TOKEN}@github.com/edosrecki/homebrew-tools.git"
 cd homebrew-tools
 
-git config user.email "travis@travis-ci.org"
-git config user.name "Travis CI"
+git config user.email "${GIT_EMAIL}"
+git config user.name "Dinko Osrecki"
 
 cat <<EOF > oopsiee.rb
 class Oopsiee < Formula
