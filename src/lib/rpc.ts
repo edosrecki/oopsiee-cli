@@ -1,6 +1,6 @@
-import Store from 'conf'
 import axios from 'axios'
 import program from 'caporal'
+import Store from 'conf'
 import { flow, isArray, isEmpty, reduce } from 'lodash'
 import { isNil, join, reject, zipWith } from 'lodash/fp'
 import { buildAuthorizationHeader } from '../util/authorization'
@@ -17,8 +17,8 @@ export const fetchJobResults = async (store: Store, id: string) => {
     baseURL: url,
     url: `rpc/async/${id}`,
     headers: {
-      Authorization: await buildAuthorizationHeader(store)
-    }
+      Authorization: await buildAuthorizationHeader(store),
+    },
   })
 }
 
@@ -32,16 +32,17 @@ const buildArgumentSynopsis = (argDefinition: any): string => {
   }
 }
 
-const buildValidators = ({ type }: any): number | undefined => {
-  if (!type) {
+const buildValidators = (definition: { type?: (string|string[]) }): number | undefined => {
+  const maybeTypes = definition.type
+  if (!maybeTypes) {
     return
   }
 
-  const types = isArray(type) ? type : [type]
+  const types = isArray(maybeTypes) ? maybeTypes : [maybeTypes]
 
   return types
     .map((type: string) => (program as any)[type.toUpperCase()])
-    .reduce((acc: number, validator: number) => acc | validator, 0)
+    .reduce((acc: number, validator: number) => acc | validator, 0) // tslint:disable-line:no-bitwise
 }
 
 export const addCommandArguments = (command: any, cmdDefinition: any) => {
@@ -58,7 +59,7 @@ const buildFlagsSynopsis: (flags: (string|null)[]) => string =
   flow(
     zipWith((a, b) => b ? `${a}${b}` : null, ['-', '--']),
     reject(isNil),
-    join(', ')
+    join(', '),
   )
 
 const buildOptionSynopsis = (optDefinition: any): string => {
@@ -92,7 +93,7 @@ export const addCommandOptions = (command: any, cmdDefinition: any) => {
 const buildArgumentsMapping = (cmdDefinition: any) =>
   reduce(cmdDefinition.arguments, (acc, argument) => ({
     ...acc,
-    [argument.as || argument.name]: argument.name
+    [argument.as || argument.name]: argument.name,
   }), {})
 
 const buildOptionsMapping = (cmdDefinition: any) =>
@@ -100,7 +101,7 @@ const buildOptionsMapping = (cmdDefinition: any) =>
     const name = option.long || option.short
     return {
       ...acc,
-      [option.as || name]: name
+      [option.as || name]: name,
     }
   }, {})
 
@@ -108,13 +109,13 @@ export const buildActionParams = (cmdDefinition: any, args: any, opts: any): any
   const argsMapping = buildArgumentsMapping(cmdDefinition)
   const argsParams = reduce(argsMapping, (acc, val, key) => ({
     ...acc,
-    [key]: args[val]
+    [key]: args[val],
   }), {})
 
   const optsMapping = buildOptionsMapping(cmdDefinition)
   const optsParams = reduce(optsMapping, (acc, val, key) => ({
     ...acc,
-    [key]: opts[val]
+    [key]: opts[val],
   }), {})
 
   return { ...argsParams, ...optsParams }

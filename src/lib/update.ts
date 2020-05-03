@@ -1,8 +1,8 @@
-import Store from 'conf'
 import axios from 'axios'
-import moment from 'moment'
+import Store from 'conf'
 import yaml from 'js-yaml'
 import { isEmpty } from 'lodash'
+import moment from 'moment'
 
 export const update = async (store: Store) => {
   const url = store.get('config.core.url')
@@ -14,7 +14,7 @@ export const update = async (store: Store) => {
   const { data } = await axios({
     method: 'GET',
     baseURL: url,
-    url: 'commands'
+    url: 'commands',
   })
 
   const commands = yaml.safeLoad(data)

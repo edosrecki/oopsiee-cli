@@ -12,14 +12,14 @@ export const store = new Store({
       core: {
         'url': 'https://oopsiee.herokuapp.com/',
         'auto-update': true,
-        'update-interval': 24
+        'update-interval': 24,
       },
       user: {
         'name': '',
         'key-file': '',
-        'ssh-agent-socket': ''
-      }
+        'ssh-agent-socket': '',
+      },
     },
-    commands: {}
-  }
+    commands: {},
+  },
 })

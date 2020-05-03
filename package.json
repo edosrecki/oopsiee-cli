@@ -22,7 +22,7 @@
     "clean": "rimraf dist bin",
     "exec:dev": "ts-node src/index.ts",
     "exec:dist": "node dist/index.js",
-    "lint": "tslint -c tslint.json 'lib/**/*.ts'",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
     "lint:fix": "npm run lint -- --fix",
     "pretest": "npm run lint",
     "test": "jest --passWithNoTests",
@@ -63,7 +63,7 @@
     "semantic-release": "^17.0.7",
     "ts-jest": "^25.4.0",
     "ts-node": "^8.10.1",
-    "tslint": "^5.20.1",
+    "tslint": "^6.1.2",
     "typescript": "^3.8.3"
   },
   "keywords": [
