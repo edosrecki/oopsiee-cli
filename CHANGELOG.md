@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/edosrecki/oopsiee-cli/compare/v1.5.0...v1.5.1) (2020-05-03)
+
+
+### Bug Fixes
+
+* **login:** fix default public key file path ([dc5d8b0](https://github.com/edosrecki/oopsiee-cli/commit/dc5d8b0aa121b1891537bc6ff07773e605572020))
+
 # [1.5.0](https://github.com/edosrecki/oopsiee-cli/compare/v1.4.1...v1.5.0) (2020-05-03)
 
 
