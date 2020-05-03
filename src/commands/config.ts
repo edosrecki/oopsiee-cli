@@ -10,7 +10,7 @@ const parsers: { [variable: string]: Parser } = {
 
 export const addConfigCommands = (program: Caporal, store: Store) => {
   program
-    .command('config path', 'Print path to a config file')
+    .command('config path', 'Print the path to a config file')
     .action(() => {
       console.log(store.path)
     })

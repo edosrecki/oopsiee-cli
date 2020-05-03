@@ -1,5 +1,6 @@
 import program from 'caporal'
 import { addConfigCommands } from './commands/config'
+import { addLoginCommands } from './commands/login'
 import { addRpcCommands } from './commands/rpc'
 import { addUpdateCommands } from './commands/update'
 import { autoUpdate } from './lib/auto-update'
@@ -15,6 +16,7 @@ async function main() {
     .version(version)
 
   addConfigCommands(program, store)
+  addLoginCommands(program, store)
   addUpdateCommands(program, store)
   addRpcCommands(program, store)
 

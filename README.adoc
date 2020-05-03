@@ -45,19 +45,19 @@ _Package_ sections.
 
 == Usage
 === Configure
+1. https://github.com/edosrecki/oopsiee-server#adding-your-public-key[Add your public key] to `oopsiee-server`.
+2. Log into `oopsiee-cli`:
+
 ```shell
-oopsiee config set user.name <USERNAME>
-oopsiee config set user.key-file <PATH_TO_PRIVATE_KEY>
-# If you use encrypted private key and ssh-agent
+> oopsiee login
+? Username: foobar
+? Private key file path: ~/.ssh/id_rsa
+```
+
+==== Encrypted private key?
+Encrypted private keys are supported via `ssh-agent`, which needs to be configured:
+```shell
 oopsiee config set user.ssh-agent-socket <SSH_AGENT_SOCKET>
-# Add corresponding public key to oopsiee-server:
-# https://github.com/edosrecki/oopsiee-server#adding-your-public-key
-
-# Configured by default
-# oopsiee config set core.url https://oopsiee.herokuapp.com/
-
-# Update commands definitions
-oopsiee update
 ```
 
 === Help
